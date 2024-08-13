@@ -71,7 +71,6 @@ void solve()
     // ########## wirte your code here ###########
     cin >> n;
     vector<ll> a(n), b(n);
-    ll mn = LONG_LONG_MAX, idx = -1;
     f0n(i, n) cin >> a[i] >> b[i];
     tres = a[0];
     for(int i = 0; i < n - 1; i ++) {
