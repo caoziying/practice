@@ -1,21 +1,7 @@
 //
 // Created by 21911 on 2024/8/13.
 //
-#include <iostream>
-#include <algorithm>
-#include <cmath>
-#include <cstring>
-#include <cstdio>
-#include <cstdlib>
-#include <vector>
-#include <iomanip>
-#include <ctime>
-#include <set>
-#include <map>
-#include <unordered_map>
-#include <queue>
-#include <stack>
-#include <chrono>
+#include <bits/stdc++.h>
 
 #define eps 1e-8    //多2
 #define inf 0x3f3f3f3f
