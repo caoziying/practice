@@ -57,12 +57,11 @@ struct Node {
 map<int, Node*> roots;
 
 void update(Node* &o, int l, int r, int x, int val) {
+    if(o == nullptr) o = new Node();
     if (l == r) {
         o->val = val;
         return;
     }
-    if(o->left == nullptr) o->left = new Node();
-    if(o->right == nullptr) o->right = new Node();
     int mid = (l + r) / 2;
     if (x <= mid) update(o->left, l, mid, x, val);
     else update(o->right, mid + 1, r, x, val);
@@ -88,7 +87,7 @@ void solve()
     vector<int> arr;
     f0n(i, n) { cin >> x; s.insert(x); }
     for(int val : s) arr.push_back(val);
-    Node* root = new Node();
+    Node* root = nullptr;
     f0n(i, n + 1) {
         update(root, 1, N, arr[i] + 1, max(0, arr[i + 1] - arr[i] - 1));
     }
