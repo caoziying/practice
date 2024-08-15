@@ -40,7 +40,7 @@ struct HASH {
 typedef long long ll;
 typedef pair<int,int> PII;
 typedef pair<ll,ll> PLL;
-
+//typedef pair<pair<int, int>, int> tuple;
 int TEST;               //测试案例数
 const int N = 1e5+5;    //数组长度
 //int a[N];
@@ -57,7 +57,7 @@ void solve()
     cin >> n;
     int x;
     set<int> s = {0, 10000000};
-    set<PII> q;
+    set<vector<int>> q;
     vector<int> arr;
     f0n(i, n) { cin >> x; s.insert(x); }
     for(int val : s) arr.push_back(val);
@@ -88,7 +88,7 @@ void solve()
         }
         else {
             auto it = q.lower_bound({val, -1});
-            cout << (*it).second << " ";
+            cout << (*it)[1] << " ";
         }
     }
     cout << endl;
