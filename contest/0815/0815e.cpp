@@ -49,6 +49,16 @@ int n, m, k;
 int SG[N];
 vector<int> prime;
 vector<int> st, minp;
+//void eular(int n) {
+//    st.resize(n + 1, false);
+//    for(int i = 2; i <= n; i++) {
+//        if(!st[i]) prime.push_back(i);
+//        for(int j = 0; prime[j] <= n / i; j ++) {
+//            st[i * prime[j]] = true;
+//            if(i % prime[j] == 0) break;
+//        }
+//    }
+//}
 void eular(int n) {
     st.resize(n+1, false);
     minp.resize(n+1, 0);
@@ -96,15 +106,16 @@ int main(void)
     cin.tie(0); cout.tie(0);
     TEST = 1;
     eular(N);
+//    cout << prime.size() << endl;
     memset(SG, 0, sizeof SG);
     SG[1] = 1;
-    for(int i = 0; i < 100; i ++) cout << prime[i] << " "; cout << endl;
+//    for(int i = 0; i < 100; i ++) cout << prime[i] << " "; cout << endl;
     for(int i = 0; i < prime.size(); i ++) SG[prime[i]] = i + 1;
     for(int i = 3; i <= N; i += 2) SG[i] = SG[minp[i]];
-
-    for(int i = 0; i < 101; i ++) cout << SG[i] << " " << sg(i) << endl;
-//    cin >> TEST;
-//    while(TEST--)
-//        solve();
+    SG[2] = 0;
+//    for(int i = 0; i < 101; i ++) cout << SG[i] << " " << sg(i) << endl;
+    cin >> TEST;
+    while(TEST--)
+        solve();
     return 0;
 }
