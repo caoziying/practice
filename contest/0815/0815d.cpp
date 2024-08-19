@@ -83,7 +83,7 @@ void solve()
             int l = min(x, y), r = max(x, y);
             for(auto s : vec) {
                 if(s == p1 || s == p2) continue;
-                auto v = pt[s];
+                auto& v = pt[s];    // 没有引用，超时
                 if(v.size() == 0) continue;
                 if(v[0] >= r) res = min(res, 2 * v[0] - r - l);
                 else if(v.back() <= l) res = min(res, l + r - 2 * v.back());
