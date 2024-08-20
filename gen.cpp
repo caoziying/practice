@@ -41,7 +41,7 @@ typedef pair<ll,ll> PLL;
 int TEST;               //测试案例数
 const int N = 1e5+5;    //数组长度
 //int a[N];
-int n, m;
+int n, m, k;
 // int a, b, c;
 // unordered_map<int, int, HASH> mp;
 // unordered_map<pair<int, int>, int, HASH> mp2;
@@ -50,7 +50,7 @@ void solve()
 {
     ios::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    ll res = 0;
+    // ll res = 0;
     // ########## wirte your code here ###########
 
     // ############################################
@@ -63,7 +63,7 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     TEST = 1;
-    cin >> TEST;
+//    cin >> TEST;
     while(TEST--)
         solve();
     return 0;
