@@ -90,6 +90,10 @@ void solve()
     }
     if(res1 == 0) res2 = 1;
     cout << res1 << " " << res2 << endl;
+//    for(int i = 1; i <= n; i ++) {
+//        if(ans[i])
+//            cout << i - ans[i] + 1 << " " << i << endl;
+//    }
 }
 
 
