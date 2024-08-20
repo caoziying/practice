@@ -54,8 +54,7 @@ struct Node {
     Node() : val(0), left(nullptr), right(nullptr) {}
 };
 
-map<int, Node*> roots;
-
+// 指针类型的引用  Node* 表示类型
 void update(Node* &o, int l, int r, int x, int val) {
     if(o == nullptr) o = new Node();
     if (l == r) {
