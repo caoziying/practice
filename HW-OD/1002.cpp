@@ -1,0 +1,112 @@
+//
+// Created by 21911 on 24-8-21.
+//
+//
+// Created by 21911 on 2024/8/13.
+//
+#include <bits/stdc++.h>
+
+#define eps 1e-8    //多2
+#define inf 0x3f3f3f3f
+#define PI acos(-1)     //π
+#define f0n(i,n) for (int (i)=0;(i)< (n);(i)++)
+#define f1n(i,n) for (int (i)=1;(i)<=(n);(i)++)
+
+using namespace std;
+// unordered_map  HASH,与时间戳相关，防止HACK
+struct HASH {
+    static uint64_t splitmix64(uint64_t x) {
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
+    }
+
+    static size_t get(const uint64_t x) {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64(x + FIXED_RANDOM);
+    }
+
+    template <typename T>
+    size_t operator()(T x) const {
+        return get(std::hash<T>()(x));
+    }
+
+    template <typename F, typename S>
+    size_t operator()(pair<F, S> p) const {
+        return get(std::hash<F>()(p.first) ^ std::hash<S>()(p.second));
+    }
+};
+typedef long long ll;
+typedef pair<int,int> PII;
+typedef pair<ll,ll> PLL;
+
+int TEST;               //测试案例数
+const int N = 1e5+5;    //数组长度
+//int a[N];
+int n, m, k;
+// int a, b, c;
+// unordered_map<int, int, HASH> mp;
+// unordered_map<pair<int, int>, int, HASH> mp2;
+
+void solve()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    // ll res = 0;
+    // ########## wirte your code here ###########
+    string str;
+    cin >> k;
+    cin >> str;
+    n = str.size();
+    int l = 0, r = n-1;
+    while(l <= r && str[l] == '_') l ++;
+    while(l <= r && str[r] == '_') r --;
+    if(l > r) {
+        cout << "ERROR" << endl;
+        return;
+    }
+    str = str.substr(l, r - l + 1);
+    string res = "";
+    bool ok = false;
+    while(l <= r) {
+        string t = "";
+        if(str[l] == '"') {
+            t += '"';
+            l ++;
+            while(l <= r && str[l] != '"') t += str[l], l ++;
+            t += '"';
+            l ++;
+            while(l <= r && str[l] == '_') l ++;
+            if(k == 0) ok = true, res += "******_";
+            else res += t + "_";
+            k --;
+        }
+        else {
+            while (l <= r && str[l] != '_') t += str[l], l++;
+            while (l <= r && str[l] == '_') l++;
+            if (k == 0) ok = true, res += "******_";
+            else res += t + "_";
+            k--;
+        }
+//        cout << t << endl;
+    }
+    if(ok) cout << res.substr(0, res.size() - 1) << endl;
+    else cout << "ERROR" << endl;
+    // ############################################
+    // cout << res << endl;
+}
+//password__"a1_23_123"_"time_out"_100
+int main(void)
+{
+    // freopen("out.txt", "w", stdout);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    TEST = 1;
+//    cin >> TEST;
+    while(TEST--)
+        solve();
+    return 0;
+}
