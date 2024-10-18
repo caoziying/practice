@@ -49,7 +49,8 @@ int n, m, k;
 void solve()
 {
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     // ll res = 0;
     // ########## wirte your code here ###########
 
@@ -61,9 +62,10 @@ int main(void)
 {
     // freopen("out.txt", "w", stdout);
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     TEST = 1;
-//    cin >> TEST;
+    cin >> TEST;
     while(TEST--)
         solve();
     return 0;

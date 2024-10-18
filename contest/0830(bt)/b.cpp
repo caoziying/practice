@@ -1,5 +1,5 @@
 //
-// Created by 21911 on 24-8-15.
+// Created by 21911 on 24-8-31.
 //
 //
 // Created by 21911 on 2024/8/13.
@@ -44,43 +44,73 @@ typedef pair<ll,ll> PLL;
 int TEST;               //测试案例数
 const int N = 1e5+5;    //数组长度
 //int a[N];
-ll n, m, k;
+int n, m, k;
 // int a, b, c;
 // unordered_map<int, int, HASH> mp;
 // unordered_map<pair<int, int>, int, HASH> mp2;
+//struct node{
+//    int val;
+//    int lazy;
+//    node* l, * r;
+//    node(): val(0), lazy(0), l(nullptr), r(nullptr) {}
+//};
+//void update(node* &root, int l, int r, int L, int R, int x) {
+//    if(l == L && r == R) {
+//        root -> val += x;
+//        root -> lazy += x;
+//        return;
+//    }
+//    if(root -> l == nullptr) root -> l = new node();
+//    if(root -> r == nullptr) root -> r = new node();
+//    if(root -> lazy) {
+//        root -> l -> val += root -> lazy;
+//        root -> r -> val += root -> lazy;
+//        root -> l -> lazy += root -> lazy;
+//        root -> r -> lazy += root -> lazy;
+//        root -> lazy = 0;
+//    }
+//    int mid = (l + r) / 2;
+//    if(R <= mid) update(root -> l, l, mid, L, R, x);
+//    else if(L > mid) update(root -> r, mid + 1, r, L, R, x);
+//    else {
+//        update(root -> l, l, mid, L, mid, x);
+//        update(root -> r, mid + 1, r, mid + 1, R, x);
+//    }
+//    root -> val = max(root -> l -> val, root -> r -> val);
+//}
 
 void solve()
 {
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     // ll res = 0;
     // ########## wirte your code here ###########
-    cin >> n >> k;
-    vector<ll> a(n + 1);
-    f1n(i, n) cin >> a[i];
-    ranges::sort(a.begin()+1, a.end());
-    for(int i = n-1; i >= 1; i -=2) {
-        if(a[i+1] > a[i]) {
-            ll t = a[i+1] - a[i];
-            a[i] += min(k, t);
-            min(k, t);
+    ll x, mx = 0;
+    char op;
+    int l, r;
+    cin >> n >> m;
+    vector<ll> a(n);
+    f0n(i, n) cin >> a[i], mx = max(mx, a[i]);
+    f0n(i, m) {
+        cin >> op >> l >> r;
+        if(l <= mx && mx <= r) {
+            if(op == '-') mx --;
+            else mx ++;
         }
+        cout << mx << " ";
     }
-    int A = 0, B = 0;
-    for(int i = n; i >= 1; i -= 2) {
-        A += a[i];
-        B += a[i-1];
-    }
-    cout << A - B << endl;
+    cout << endl;
     // ############################################
-    // cout << res << endl;
+
 }
 
 int main(void)
 {
     // freopen("out.txt", "w", stdout);
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     TEST = 1;
     cin >> TEST;
     while(TEST--)

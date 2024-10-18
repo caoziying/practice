@@ -1,5 +1,5 @@
 //
-// Created by 21911 on 24-8-15.
+// Created by 21911 on 24-8-31.
 //
 //
 // Created by 21911 on 2024/8/13.
@@ -44,43 +44,33 @@ typedef pair<ll,ll> PLL;
 int TEST;               //测试案例数
 const int N = 1e5+5;    //数组长度
 //int a[N];
-ll n, m, k;
+int n, m, k;
 // int a, b, c;
 // unordered_map<int, int, HASH> mp;
 // unordered_map<pair<int, int>, int, HASH> mp2;
-
+int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
 void solve()
 {
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     // ll res = 0;
     // ########## wirte your code here ###########
-    cin >> n >> k;
-    vector<ll> a(n + 1);
-    f1n(i, n) cin >> a[i];
-    ranges::sort(a.begin()+1, a.end());
-    for(int i = n-1; i >= 1; i -=2) {
-        if(a[i+1] > a[i]) {
-            ll t = a[i+1] - a[i];
-            a[i] += min(k, t);
-            min(k, t);
-        }
-    }
-    int A = 0, B = 0;
-    for(int i = n; i >= 1; i -= 2) {
-        A += a[i];
-        B += a[i-1];
-    }
-    cout << A - B << endl;
+    int l, r, res = 0;
+    cin >> l >> r;
+    if(l % 2) l --;
     // ############################################
-    // cout << res << endl;
+    cout << (r - l + 1) / 4 << endl;
 }
 
 int main(void)
 {
     // freopen("out.txt", "w", stdout);
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     TEST = 1;
     cin >> TEST;
     while(TEST--)

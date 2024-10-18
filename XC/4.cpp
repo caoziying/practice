@@ -15,26 +15,26 @@ int main() {
     vector<ll> a(n + 1);
     for (int i = 1; i <= n; i++) cin >> a[i];
     ll s = 0, res = 0;
-    deque<pair<int, ll>> sta;
-    for (int i = 1; i <= k; i++) sta.push_back({i, a[i]}), s += a[i];
+    deque<pair<int, ll>> dq;
+    for (int i = 1; i <= k; i++) dq.push_back({i, a[i]}), s += a[i];
     for (int i = k + 1; i <= n; i++) {
         while (s > sum) {
-            while (s - sta.back().second > sum)
-                s -= sta.back().second, res += sta.back().second, sta.pop_back();
-            sta.back().second -= (s - sum), res += (s - sum);
+            while (s - dq.back().second > sum)
+                s -= dq.back().second, res += dq.back().second, dq.pop_back();
+            dq.back().second -= (s - sum), res += (s - sum);
             s = sum;
         }
-        if (sta.front().first <= i - k) {
-            s -= sta.front().second;
-            sta.pop_front();
+        if (dq.front().first <= i - k) {
+            s -= dq.front().second;
+            dq.pop_front();
         }
-        sta.push_back({i, a[i]});
+        dq.push_back({i, a[i]});
         s += a[i];
     }
     while (s > sum) {
-        while (s - sta.back().second > sum)
-            s -= sta.back().second, res += sta.back().second, sta.pop_back();
-        sta.back().second -= (s - sum), res += (s - sum);
+        while (s - dq.back().second > sum)
+            s -= dq.back().second, res += dq.back().second, dq.pop_back();
+        dq.back().second -= (s - sum), res += (s - sum);
         s = sum;
     }
     cout << res << endl;
