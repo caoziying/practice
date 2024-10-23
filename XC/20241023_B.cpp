@@ -7,11 +7,11 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+using ll = long long;
 int main() {
     int n;
     cin>>n;
-    vector<int> v(n);
+    vector<ll> v(n);
     for(int i = 0; i < n; i ++) cin >> v[i];
     int z = 0, f = 0, zero = 0;
     for(auto x : v) {
@@ -19,7 +19,7 @@ int main() {
         if(x > 0) z ++;
         if(x < 0) f ++;
     }
-    int res = 0, mn = INT_MIN;
+    ll res = 0, mn = LLONG_MAX;
     for(auto x : v) res += abs(x), mn = min(mn, abs(x));
     if(z && f || (z+f > 0 && zero)) {
         cout << res << endl;
