@@ -39,7 +39,8 @@ add_executable(xiaomeide_caidai MT/xiaomeide_caidai.cpp)
 
 add_executable(d2 contest/0826/d2.cpp)
 add_executable(0828 0cha/0828.cpp)
-add_executable(DJ DJ.cpp)
+add_executable(DJ DJ.cpp
+        test.cpp)
 
 add_executable(4 XC/4.cpp)
 add_executable(200zt HW-OD/200zt.cpp)
@@ -47,3 +48,7 @@ add_executable(CF865D stock-problems/CF865D.cpp)
 
 add_executable(P8620 luogu/P8620.cpp)
 add_executable(P8620_r luogu/P8620_r.cpp)
+add_executable(test test.cpp)
+add_executable(t1 t1.cpp)
+add_executable(t2 t2.cpp)
+add_executable(P4999 luogu/P4999.cpp)
